@@ -6,9 +6,13 @@ import Container from 'react-bootstrap/Container';
 import data from './sampleData.json';
 
 // Components
-import PostPreview from './postPreview';
 import Navbar from './Navbar';
+import PostPreview from './postPreview';
+import LandingPage from './landingPage';
 
+
+// Router
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
 function App() {
@@ -18,9 +22,13 @@ function App() {
     <div className="App">
       <Navbar />
       <Container>
-        <PostPreview posts={posts} />
-        {/*<PostView> / */}
-
+        <BrowserRouter>
+          <Routes>
+            <Route export path="/posts" element={<PostPreview posts={posts}/>} />
+            {/* <Route export path="/posts" component={PostView}/> */}
+            <Route exact path="/" element={<LandingPage />} />
+          </Routes>
+        </BrowserRouter>
       </Container>
     </div>
   );
