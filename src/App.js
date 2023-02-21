@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar posts={posts}/>
       <Container>
         <BrowserRouter>
           <Routes>
