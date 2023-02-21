@@ -8,6 +8,7 @@ import data from './sampleData.json';
 // Components
 import Navbar from './Navbar';
 import PostPreview from './postPreview';
+import PostView from './postView';
 import LandingPage from './landingPage';
 
 
@@ -24,8 +25,8 @@ function App() {
       <Container>
         <BrowserRouter>
           <Routes>
-            <Route export path="/posts" element={<PostPreview posts={posts}/>} />
-            {/* <Route export path="/posts" component={PostView}/> */}
+            <Route export path="/post/:id" element={<PostView posts={posts}/>} />
+            <Route export path="/posts/" element={<PostPreview posts={posts}/>}/>
             <Route exact path="/" element={<LandingPage />} />
           </Routes>
         </BrowserRouter>

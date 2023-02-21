@@ -3,6 +3,8 @@ import Col from 'react-bootstrap/Col';
 
 function PostPreview({ posts }) {
 
+  console.log("ALL POSTS");
+
   const postRender = posts.map((post) =>
     <Row key={post.id}>
       <Col lg={2}>
