@@ -5,27 +5,31 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function BasicExample({ posts }) {
 
-  const renderDropdown = posts.map((post) => {
-    return <NavDropdown.Item key={parseInt(post.id)} href={"/post/" + JSON.stringify(post.id)}>{post.title}</NavDropdown.Item>;
-  }
-  );
+  const recentPosts = posts.slice(0, 5);
+
+  const renderDropdown = recentPosts.map((post) => {
+    return <NavDropdown.Item key={parseInt(post.id)} href={"/post/" + post.id}>{post.title}</NavDropdown.Item>;
+  });
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
-      <Container>
-        <Navbar.Brand>Posts</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/posts">All Posts</Nav.Link>
-            <NavDropdown title="Recent Posts" id="basic-nav-dropdown">
-              {renderDropdown}
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <>
+      <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+        <Container>
+          <Navbar.Brand>Posts</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/posts">All Posts</Nav.Link>
+              <NavDropdown title="Recent Posts" id="basic-nav-dropdown">
+                {renderDropdown}
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <Container style={{marginBottom: 75}} />
+    </>
   );
 }
 
