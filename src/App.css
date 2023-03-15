@@ -2,3 +2,20 @@
   text-align: center;
 }
 
+a.card {
+  text-decoration: none;
+  color: black;
+}
+a:visited.card {
+  text-decoration: none;
+  color: black;
+}
+a:active.card {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover.card {
+  text-decoration: none;
+  color: grey;
+}
